@@ -5,6 +5,21 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
-function maxChar(str) {}
+function maxChar(str) {
+    const charMap = {};
+    let maxCount = 0;
+    let foundChar = '';
+    for (let char of str) {
+        charMap[char] = charMap[char] + 1 || 1;
+    }
+    console.log(charMap);
+    for (let char in charMap) {
+        if (charMap[char] > maxCount) {
+            maxCount = charMap[char];
+            foundChar = char;
+        }
+    }
+    return foundChar;
+}
 
 module.exports = maxChar;
